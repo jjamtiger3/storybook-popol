@@ -17,3 +17,10 @@ export const Default = {
     label: '체크박스'
   },
 };
+
+export const PositionLeft = {
+  args: {
+    label: '체크박스',
+    labelPosition: 'left'
+  },
+};

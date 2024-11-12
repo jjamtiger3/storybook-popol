@@ -108,6 +108,7 @@ const CheckBox = forwardRef(({ label, id = 'id', labelPosition = 'right', onChan
             } 
             <CheckboxInput 
                 id={checkboxId} 
+                type="checkbox"
                 disabled={props.disabled}
                 checked={checked}
                 onChange={handleChange} 
