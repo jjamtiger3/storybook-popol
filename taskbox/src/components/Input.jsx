@@ -19,13 +19,6 @@ const InputWrapper = styled.div`
     width: 200px;
     font-size: 14px;
     border: 1px solid #e7e7e7;
-    &.required {
-        border: 1px solid #f44336;
-        border-radius: 4px;
-        label + div {
-            border: none;
-        }
-    }
     &.readonly {
         background: #ebf1fb;
         border: 1px solid #b3bacb;

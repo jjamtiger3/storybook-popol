@@ -38,10 +38,3 @@ export const Disabled = {
     disabled: true
   },
 };
-
-export const Required = {
-  args: {
-    label: 'Input Here!!!!',
-    required: true
-  },
-};
