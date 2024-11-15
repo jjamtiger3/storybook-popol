@@ -1,5 +1,3 @@
-import { fn } from "@storybook/test";
-
 import CheckBox from './CheckBox';
 
 export default {
