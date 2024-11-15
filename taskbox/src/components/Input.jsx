@@ -20,7 +20,14 @@ const InputWrapper = styled.div`
     font-size: 14px;
     border: 1px solid #e7e7e7;
     &.required {
-        border: 1px solid #f44336;
+        label + div {
+            border: 1px solid #f44336;
+        }
+        &.focused {
+            fieldset {
+                border-color: #f44336;
+            }
+        }
     }
     &.readonly {
         background: #ebf1fb;
