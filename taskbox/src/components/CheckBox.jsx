@@ -55,13 +55,13 @@ const CheckboxInput = styled.input`
 
 const CheckboxLabel = styled.label`
     margin: 0;
-    background-color: ${props => props.customcss?.style?.backgroundColor};
-    color: ${props => props.customcss?.style?.color};
-    padding: ${props => props.customcss?.style?.padding};
-    height: ${props => props.customcss?.style?.height};
-    line-height: ${props => props.customcss?.style?.height};
-    display: ${props => props.customcss?.style?.display};
-    align-items: ${props => props.customcss?.style?.alignItems};
+    background-color: ${props => props.customcss?.backgroundColor};
+    color: ${props => props.customcss?.color};
+    padding: ${props => props.customcss?.padding};
+    height: ${props => props.customcss?.height};
+    line-height: ${props => props.customcss?.height};
+    display: ${props => props.customcss?.display};
+    align-items: ${props => props.customcss?.alignItems};
     &.emphasis {
         font-weight: 700;
     }
@@ -99,7 +99,7 @@ const CheckBox = forwardRef(({ label, id = 'id', labelPosition = 'right', onChan
             {
                 label && labelPosition === 'left' && 
                     <CheckboxLabel 
-                        customcss={props.customLabel} 
+                        customcss={props.customCss} 
                         htmlFor={checkboxId} 
                         className={[props.emphasisLabel && 'emphasis'].join(' ')}
                     >
@@ -118,7 +118,7 @@ const CheckBox = forwardRef(({ label, id = 'id', labelPosition = 'right', onChan
                 label && labelPosition === 'right' && 
                     <CheckboxLabel 
                         className={[props.emphasisLabel && 'emphasis'].join(' ')} 
-                        customcss={props.customLabel} 
+                        customcss={props.customCss} 
                         htmlFor={checkboxId}
                     >
                         {label}

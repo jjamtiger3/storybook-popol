@@ -37,3 +37,16 @@ export const PositionLeft = {
     id: 'checkbox-position'
   },
 };
+
+export const CustomCSS = {
+  args: {
+    label: '체크박스 - customCSS',
+    labelPosition: 'left',
+    id: 'checkbox-custom-css',
+    customCss: {
+      padding: '5px',
+      color: '#ff0000',
+      backgroundColor: '#0000ff',
+    }
+  },
+};
