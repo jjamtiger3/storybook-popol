@@ -13,7 +13,13 @@ export default {
       control: {
         type: 'text'
       }
-    }
+    },
+    labelPosition: {
+      control: {
+        type: 'radio'
+      },
+      options: ['left', 'right']
+    },
   }
 };
 
@@ -30,12 +36,4 @@ export const PositionLeft = {
     labelPosition: 'left',
     id: 'checkbox-position'
   },
-  argTypes: {
-    labelPosition: {
-      control: {
-        type: 'radio'
-      },
-      options: ['left', 'right']
-    },
-  }
 };
