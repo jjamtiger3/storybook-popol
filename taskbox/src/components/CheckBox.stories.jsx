@@ -8,17 +8,34 @@ export default {
   excludeStories: /.*Data$/,
   args: {
   },
+  argTypes: {
+    id: {
+      control: {
+        type: 'text'
+      }
+    }
+  }
 };
 
 export const Default = {
   args: {
-    label: '체크박스'
+    label: '체크박스 - 기본',
+    id: 'checkbox-default'
   },
 };
 
 export const PositionLeft = {
   args: {
-    label: '체크박스',
-    labelPosition: 'left'
+    label: '체크박스 - 포지션',
+    labelPosition: 'left',
+    id: 'checkbox-position'
   },
+  argTypes: {
+    labelPosition: {
+      control: {
+        type: 'radio'
+      },
+      options: ['left', 'right']
+    },
+  }
 };
