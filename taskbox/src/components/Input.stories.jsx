@@ -81,6 +81,22 @@ export const Required = {
   },
 };
 
+export const MaxLength = {
+  args: {
+    label: 'Input Here!!!!',
+    value: 'required',
+    maxLength: 5
+  },
+};
+
+export const NotUseFieldset = {
+  args: {
+    label: 'Input Here!!!!',
+    value: 'required',
+    notUseFieldset: true
+  },
+};
+
 export const Disabled = {
   args: {
     label: 'Input Here!!!!',
