@@ -63,7 +63,7 @@ export const SelectedIndex = {
   args: {
     label: '라디오 - 기본선택3',
     name: 'default-radio',
-    SelectedIndex: 2,
+    selectedIndex: 2,
     items
   },
 };
