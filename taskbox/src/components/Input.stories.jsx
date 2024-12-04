@@ -8,6 +8,19 @@ export default {
   excludeStories: /.*Data$/,
   args: {
   },
+  argTypes: {
+    id: {
+      control: {
+        type: 'text'
+      }
+    },
+    type: {
+      control: {
+        type: 'select'
+      },
+      options: ['text', 'number']
+    },
+  }
 };
 
 export const Default = {
@@ -19,8 +32,37 @@ export const Default = {
 export const NumberType = {
   args: {
     label: 'Input Here!!!!',
-    type: 'number'
+    type: 'number',
+    max: 100,
+    min: 5
   },
+  argTypes: {
+    max: {
+      control: {
+        type: 'number'
+      }
+    },
+    min: {
+      control: {
+        type: 'number'
+      }
+    },
+  }
+};
+
+export const MaxByteCheck = {
+  args: {
+    label: 'Input Here!!!!',
+    maxByte: 10
+  },
+  argTypes: {
+    maxByte: {
+      control: {
+        type: 'number',
+      },
+      description: '최대 입력 가능한 바이트 수를 설정합니다.'
+    },
+  }
 };
 
 export const ReadOnly = {
