@@ -76,7 +76,7 @@ export const ReadOnly = {
 export const MaxLength = {
   args: {
     label: 'Input Here!!!!',
-    value: 'required',
+    value: 'aaaaa',
     maxLength: 5
   },
 };
@@ -84,7 +84,7 @@ export const MaxLength = {
 export const NotUseFieldset = {
   args: {
     label: 'Input Here!!!!',
-    value: 'required',
+    value: 'fieldset not use',
     notUseFieldset: true
   },
 };
