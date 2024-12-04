@@ -63,6 +63,7 @@ const RadioLabel = styled.label`
 const Radio = forwardRef(({ id = null, label = 'radio', labelPosition = 'right', onChange, ...props }, ref) => { 
   const radioId = id || `radio-${props.name}-${label}`;
   const radioRef = useRef();
+  const [defaultChecked, setDefaultChecked] = useState(props.defaultChecked);
   const handleClick = (evt) => {
     if (props.readOnly) {
       evt.preventDefault();
@@ -100,7 +101,7 @@ const Radio = forwardRef(({ id = null, label = 'radio', labelPosition = 'right',
         type="radio" 
         name={props.name}
         disabled={props.disabled} 
-        defaultChecked={props.defaultChecked}
+        defaultChecked={defaultChecked}
         ref={radioRef}
         onChange={onChange} 
       />
