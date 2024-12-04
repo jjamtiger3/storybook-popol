@@ -1,7 +1,22 @@
 import { forwardRef, useEffect, useImperativeHandle, useState } from "react";
-import { Wrapper } from "../common/styled";
 import styled from "styled-components";
 
+const Wrapper = styled.div`
+    font-family: 'Pretendard', sans-serif;
+    color: ${props => props?.css?.color || '#000'};
+    font-size: 13px;
+    background-color: ${props => !props?.useTab && '#fff'};
+    padding: ${props => !props?.useTab && '20px'};
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    body {
+    	line-height: 1;
+        font-size: 13px;
+    }
+    ol, ul {
+    	list-style: none;
+    }
+`;
 const ListBoxWrapper = styled.ul`
     border: 1px solid #e5e5e5;
     padding: 0;
