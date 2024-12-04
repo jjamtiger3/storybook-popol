@@ -5,6 +5,9 @@ export default {
   title: 'ListBox',
   tags: ['autodocs'],
   args: {
+    style: {
+        width: '250px'
+    }
   },
   argTypes: {
     id: {
