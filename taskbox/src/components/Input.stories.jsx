@@ -73,6 +73,14 @@ export const ReadOnly = {
   },
 };
 
+export const Required = {
+  args: {
+    label: 'Input Here!!!!',
+    value: 'required',
+    required: true
+  },
+};
+
 export const Disabled = {
   args: {
     label: 'Input Here!!!!',
