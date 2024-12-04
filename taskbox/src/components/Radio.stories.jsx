@@ -51,7 +51,7 @@ export const RadioTheme = {
       control: {
         type: 'radio'
       },
-      options: ['', 'blue', 'red']
+      options: ['none', 'blue', 'red']
     },
   }
 };
