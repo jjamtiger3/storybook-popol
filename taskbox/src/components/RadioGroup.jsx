@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import Radio from './Radio';
-import { useEffect, useRef } from 'react';
-import { useStore } from 'react-redux';
+import { useRef } from 'react';
 
 const RadioGroupContainer = styled.div`
 `;
@@ -13,26 +12,8 @@ const RadioGroup = ({
   ...props 
 }) => {
   const selectedIndex = props.selectedIndex || 0;
-  const store = useStore();
   const rgRef = useRef(null);
 
-  useEffect(() => {
-    const unsubscribe = store.subscribe(() => {
-      const templateState = store.getState().template;
-      switch (templateState.lastAction) {
-          case 'ON_FOCUS':
-              if (props.id === templateState.target) {
-                  rgRef.current.focus();
-              }
-              break;
-          default:
-              break;
-      }
-    });
-    return () => {
-      unsubscribe();
-    }
-  }, []);
   const handleChange = (evt, item) => {
     if (onChange) {
         onChange(evt, evt.target.checked, item);
