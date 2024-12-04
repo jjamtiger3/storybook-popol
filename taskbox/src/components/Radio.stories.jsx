@@ -22,23 +22,50 @@ export default {
     }
   }
 };
-
-const options = [
-    {
-        value: 'item1',
-        label: 'item1'
-    },
-    {
-        value: 'item2',
-        label: 'item2'
-    },
-    {
-        value: 'item3',
-        label: 'item3'
-    },
-];
 export const Default = {
   args: {
-    options
+    label: '라디오 - 기본',
+  },
+};
+
+export const LabelPosition = {
+  args: {
+    label: '라디오 - 라벨위치',
+  },
+  argTypes: {
+    labelPosition: {
+      control: {
+        type: 'radio'
+      },
+      options: ['left', 'right']
+    },
+  }
+};
+
+export const RadioTheme = {
+  args: {
+    label: '라디오 - theme',
+  },
+  argTypes: {
+    labelPosition: {
+      control: {
+        type: 'radio'
+      },
+      options: ['blue', 'red']
+    },
+  }
+};
+
+export const ReadOnly = {
+  args: {
+    label: '라디오 - readOnly',
+    readOnly: true
+  },
+};
+
+export const Disabled = {
+  args: {
+    label: '라디오 - disabled',
+    disabled: true
   },
 };
