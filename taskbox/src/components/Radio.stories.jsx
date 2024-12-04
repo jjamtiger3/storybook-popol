@@ -47,11 +47,11 @@ export const RadioTheme = {
     label: '라디오 - theme',
   },
   argTypes: {
-    labelPosition: {
+    theme: {
       control: {
         type: 'radio'
       },
-      options: ['blue', 'red']
+      options: ['', 'blue', 'red']
     },
   }
 };
