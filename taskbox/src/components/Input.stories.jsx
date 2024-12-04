@@ -81,21 +81,6 @@ export const MaxLength = {
   },
 };
 
-export const NotUseFieldset = {
-  args: {
-    label: 'Input Here!!!!',
-    value: 'fieldset not use',
-    notUseFieldset: true
-  },
-  argTypes: {
-    notUseFieldset: {
-      control: {
-        type: 'boolean',
-      },
-    },
-  }
-};
-
 export const Disabled = {
   args: {
     label: 'Input Here!!!!',
