@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle, useRef } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
 import styled from 'styled-components';
 
 const RadioContainer = styled.div`
@@ -63,7 +63,10 @@ const RadioLabel = styled.label`
 const Radio = forwardRef(({ id = null, label = 'radio', labelPosition = 'right', onChange, ...props }, ref) => { 
   const radioId = id || `radio-${props.name}-${label}`;
   const radioRef = useRef();
-  const [defaultChecked, setDefaultChecked] = useState(props.defaultChecked);
+  const [defaultChecked, setDefaultChecked] = useState(true);
+  useEffect(() => {
+    setDefaultChecked(props.defaultChecked);
+  }, [props.defaultChecked]);
   const handleClick = (evt) => {
     if (props.readOnly) {
       evt.preventDefault();
