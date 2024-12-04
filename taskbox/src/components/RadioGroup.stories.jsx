@@ -86,6 +86,7 @@ const items4 = [
 export const Default = {
   args: {
     label: '라디오 - 기본',
+    name: 'default-radio',
     items
   },
 };
@@ -93,6 +94,7 @@ export const Default = {
 export const SelectedIndex = {
   args: {
     label: '라디오 - 기본선택3',
+    name: 'default-radio',
     SelectedIndex: 2,
     items
   },
@@ -101,6 +103,7 @@ export const SelectedIndex = {
 export const LabelPosition = {
   args: {
     label: '라디오 - 라벨위치',
+    name: 'default-radio',
     items: items2
   },
 };
@@ -108,6 +111,7 @@ export const LabelPosition = {
 export const RadioTheme = {
   args: {
     label: '라디오 - theme',
+    name: 'default-radio',
     items: items3
   },
 };
@@ -115,6 +119,7 @@ export const RadioTheme = {
 export const ReadOnly_Disabled = {
   args: {
     label: '라디오 - readOnly',
+    name: 'default-radio',
     items: items4
   },
 };
