@@ -73,14 +73,6 @@ export const ReadOnly = {
   },
 };
 
-export const Required = {
-  args: {
-    label: 'Input Here!!!!',
-    value: 'required',
-    required: true
-  },
-};
-
 export const MaxLength = {
   args: {
     label: 'Input Here!!!!',
