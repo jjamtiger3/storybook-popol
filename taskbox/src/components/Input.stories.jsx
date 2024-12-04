@@ -87,6 +87,13 @@ export const NotUseFieldset = {
     value: 'fieldset not use',
     notUseFieldset: true
   },
+  argTypes: {
+    notUseFieldset: {
+      control: {
+        type: 'boolean',
+      },
+    },
+  }
 };
 
 export const Disabled = {
