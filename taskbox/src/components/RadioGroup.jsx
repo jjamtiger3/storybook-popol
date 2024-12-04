@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Radio from './Radio';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const RadioGroupContainer = styled.div`
 `;
@@ -11,8 +11,12 @@ const RadioGroup = ({
   onChange = () => {}, 
   ...props 
 }) => {
-  const selectedIndex = props.selectedIndex || 0;
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const rgRef = useRef(null);
+
+  useEffect(() => {
+    setSelectedIndex(props.selectedIndex);
+  }, [props.selectedIndex]);
 
   const handleChange = (evt, item) => {
     if (onChange) {
