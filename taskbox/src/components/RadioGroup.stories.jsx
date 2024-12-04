@@ -51,38 +51,6 @@ const items2 = [
         label: '라디오3',
     }
 ];
-const items3 = [
-    {
-        value: '1',
-        label: '라디오1',
-    },
-    {
-        value: '2',
-        label: '라디오2',
-        theme: 'blue'
-    },
-    {
-        value: '3',
-        label: '라디오3',
-        theme: 'red'
-    }
-];
-const items4 = [
-    {
-        value: '1',
-        label: '라디오1',
-    },
-    {
-        value: '2',
-        label: '라디오2',
-        readOnly: true
-    },
-    {
-        value: '3',
-        label: '라디오3',
-        disabled: true
-    }
-];
 export const Default = {
   args: {
     label: '라디오 - 기본',
@@ -112,14 +80,33 @@ export const RadioTheme = {
   args: {
     label: '라디오 - theme',
     name: 'default-radio',
-    items: items3
+    theme: 'blue',
+    items
   },
+  argTypes: {
+    theme: {
+      control: {
+        type: 'radio'
+      },
+      options: ['none', 'blue', 'red']
+    },
+  }
 };
 
-export const ReadOnly_Disabled = {
+export const ReadOnly = {
   args: {
     label: '라디오 - readOnly',
     name: 'default-radio',
-    items: items4
+    readOnly: true,
+    items
+  },
+};
+
+export const Disabled = {
+  args: {
+    label: '라디오 DisabledeadOnly',
+    name: 'default-radio',
+    disabled: true,
+    items
   },
 };
