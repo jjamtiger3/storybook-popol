@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import styled from 'styled-components';
-// import { addStrToCursorPosition, getByteLength } from '../common/util';
+import { addStrToCursorPosition, getByteLength, getCursorPosition, setCursorPosition } from './util';
 // import { useStore } from 'react-redux';
 
 const InputWrapper = styled.div`
@@ -186,64 +186,6 @@ const Input = forwardRef(({ type, label = '', size = 'small', ...props }, ref) =
     // const store = useStore();
     const fieldsetRef = useRef(null);
     const inputRef = useRef(null);
-    const getByteLength = (str) => {
-        let byteLength = 0;
-    
-        for (let i = 0; i < str.length; i++) {
-            const charCode = str.charCodeAt(i);
-    
-            if (charCode <= 0x7F) {
-                // ASCII 문자 (0x00 ~ 0x7F): 1바이트
-                byteLength += 1;
-            } else if (charCode <= 0x7FF) {
-                // 유니코드 문자 (0x80 ~ 0x7FF): 2바이트
-                byteLength += 2;
-            } else if (charCode <= 0xFFFF) {
-                // 유니코드 문자 (0x800 ~ 0xFFFF): 3바이트
-                byteLength += 3;
-            } else {
-                // 유니코드 문자 (0x10000 ~ 0x10FFFF): 4바이트
-                byteLength += 4;
-            }
-        }
-    
-        return byteLength;
-    }
-    const setCursorPosition = (input, position) => {
-        if (input.setSelectionRange) {
-            input.focus();
-            input.setSelectionRange(position, position);
-        } else if (input.createTextRange) {
-            var range = input.createTextRange();
-            range.collapse(true);
-            range.moveEnd('character', position);
-            range.moveStart('character', position);
-            range.select();
-        }
-    }
-    const addStrToCursorPosition = (input, optionOrStr) => {
-        if (typeof optionOrStr !== 'string' && !optionOrStr.text) {
-            return;
-        }
-        var text = (typeof optionOrStr === 'string') ? optionOrStr : optionOrStr.text;
-        var position = getCursorPosition(input);
-        var content = input.value;
-        var newContent = content.substr(0, position) + text + content.substr(position);
-        var returnValue = true;
-    
-        if (optionOrStr.beforeChange && typeof optionOrStr.beforeChange === 'function') {
-            returnValue = optionOrStr.beforeChange(input, content, newContent, position);
-        }
-    
-        if (returnValue !== false) {
-            input.value = newContent;
-            setCursorPosition(input, position + text.length);
-    
-            if (optionOrStr.afterChange && typeof optionOrStr.afterChange === 'function') {
-                optionOrStr.afterChange(input, content, newContent, position);
-            }
-        }
-    }
     const handleMouseOver = (e) => {
         if (fieldsetRef.current) {
             fieldsetRef.current.classList.add('mouseover');
@@ -298,41 +240,18 @@ const Input = forwardRef(({ type, label = '', size = 'small', ...props }, ref) =
     const getInnerInput = () => {
         return inputRef.current;
     }
+    const blur = () => {
+        inputRef.current.blur();
+    }
     useImperativeHandle(ref, () => ({
         setValueState,
         setValue,
         getValue,
         getInnerInput,
+        blur,
         clearValue,
     }));
     useEffect(() => {
-        // const unsubscribe = store.subscribe(() => {
-        //     const { lastAction } = store.getState().common;
-        //     const templateState = store.getState().template;
-        //     switch (lastAction) {
-        //         case 'ON_UPDATE_ROW':
-        //             if (props.id) {
-        //                 const arrProps = props.id.split('_');
-        //                 const value = store.getState().common.payload.row[arrProps[arrProps.length - 1]];
-        //                 setValue(value);
-        //             }
-        //             break;
-        //       default:
-        //             break;
-        //     }
-        //     switch (templateState.lastAction) {
-        //         case 'ON_FOCUS':
-        //             if (props.id === templateState.target) {
-        //                 inputRef.current.focus();
-        //             }
-        //             break;
-        //         default:
-        //             break;
-        //     }
-        //   });
-        //   return () => {
-        //     unsubscribe();
-        //   }
     }, []);
     useEffect(() => {
         if (!focused && value) {
@@ -342,6 +261,7 @@ const Input = forwardRef(({ type, label = '', size = 'small', ...props }, ref) =
             setNotFocusedValue(false);
         }
     }, [focused, value]);
+
     return (
         <InputWrapper 
             style={props.style}
