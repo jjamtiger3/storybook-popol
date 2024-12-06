@@ -1,4 +1,4 @@
-import React, { forwardRef, useImperativeHandle, useState } from 'react'; 
+import React, { forwardRef, useEffect, useImperativeHandle, useState } from 'react'; 
 import styled from 'styled-components';
 
 const CheckboxContainer = styled.div`
@@ -67,8 +67,8 @@ const CheckboxLabel = styled.label`
     }
 `;
 
-const CheckBox = forwardRef(({ label, id = 'id', labelPosition = 'right', onChange, ...props }, ref) => { 
-    const [checked, setChecked] = useState(props.checked || false);
+const CheckBox = forwardRef(({ label, id = 'id', checked, labelPosition = 'right', onChange, ...props }, ref) => { 
+    const [checkboxChecked, setCheckBoxChecked] = useState(false);
     const checkboxId = `checkbox-${id}`;
     const handleChange = (evt) => {
         if (props.readOnly) {
@@ -76,17 +76,21 @@ const CheckBox = forwardRef(({ label, id = 'id', labelPosition = 'right', onChan
             evt.stopPropagation();
             return;
         }
-        setChecked(!checked);
+        setCheckBoxChecked(!checkboxChecked);
         if (onChange) {
-            onChange(evt, !checked);
+            onChange(evt, !checkboxChecked);
         }
     }
     const setCheckedState = (checked) => {
-        setChecked(checked);
+        setCheckBoxChecked(checked);
     }
     useImperativeHandle(ref, () => ({
         setCheckedState
     }));
+
+    useEffect(() => {
+        setCheckBoxChecked(checked);
+    }, [checked]);
 
     return (
         <CheckboxContainer
@@ -110,7 +114,7 @@ const CheckBox = forwardRef(({ label, id = 'id', labelPosition = 'right', onChan
                 id={checkboxId} 
                 type="checkbox"
                 disabled={props.disabled}
-                checked={checked}
+                checked={checkboxChecked}
                 onChange={handleChange} 
                 labelPosition={labelPosition} 
             />
