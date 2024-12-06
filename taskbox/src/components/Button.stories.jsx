@@ -6,6 +6,11 @@ export default {
   component: Button,
   title: 'Button',
   tags: ['autodocs'],
+  args: {
+    onClick: () => {
+      console.log('click')
+    },
+  },
   argTypes: {
     id: {
       control: {

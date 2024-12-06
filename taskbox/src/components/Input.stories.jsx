@@ -7,6 +7,9 @@ export default {
   //👇 "Data"로 끝나는 export들은 스토리가 아닙니다.
   excludeStories: /.*Data$/,
   args: {
+    onInput: (value) => {
+      console.log(value)
+    },
   },
   argTypes: {
     id: {
